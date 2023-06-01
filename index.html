@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinefiles</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="manifest" href="manifest.webmanifest" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg nav-bg  navbar-dark ">
+        <div class="container-fluid d-flex">
+          <a href="index.html" class="Logo"
+            >Cine<span class="files">files</span></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="#mostrarTodo" class="nav-link">Discover</a>
+              </li>
+              <li class="nav-item">
+                <a href="lista.html" class="nav-link">List</a>
+              </li>
+            </ul>
+            <button class="descargar ms-auto">
+              <span class="btntext">Download </span
+              ><i class="fa-solid fa-download" style="color: #f6f6f6"></i>
+            </button>
+          </div>
+        </div>
+      </nav>  
+    </header>
+    <main>
+      <div id="hero">
+        <div id="cont-hero">
+          <div>
+            <h1 class="mb-3">Find your favourites movies</h1>
+          <div class="d-flex buscador align-items-center justify-content-center">
+            <input id="buscar" class="form-control" placeholder="Search for a movie" aria-label="Search">
+            <button id="searchButton" class="btn btn-search"><i class="fas fa-search"></i></button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <section id="mostrarTodo">
+      <div class="container-fluid d-flex justify-content-center">
+        <div class="row justify-content-center">
+          <div  id="mostrar" class="gap-4 mt-5 col d-flex justify-content-center">
+          </div>
+        </div>
+      </div>
+    </section>
+     <footer class="mt-5">
+        <a href="index.html" class="Logo">Cine<span class="files">files</span></a>
+        <p>Todos los derechos reservados ©</p>
+    </footer>
+    <script src="js/index.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script
+      src="https://kit.fontawesome.com/2d24fe97a4.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
