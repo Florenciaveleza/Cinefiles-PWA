@@ -79,6 +79,12 @@ nav ul {
   display: flex;
 }
 /*HERO**/
+/*Texto offline*/
+#offline p{
+  color: var(--claro);
+  margin: 3rem;
+  text-align: center;
+}
 #cont-hero h1 {
   font-weight: 600 !important;
 }

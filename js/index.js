@@ -82,7 +82,32 @@ if(btnShare != undefined){
     }
 });
 
+//ONLINE / OFFLINE
 
+let OnLineStatus = () => {
+  console.log(navigator.onLine);
+  if(navigator.onLine){
+      console.log("estamos online");
+  }else{
+      console.log("estamos offline");
+      let offline = document.getElementById('offline');
+      let html= `
+      <p>Estas desconectado, pero podrás seguir viendo las peliculas en tu lista! </p>
+      
+      `;
+      offline.innerHTML = html;
+  }
+}
+
+window.addEventListener('online', function () {
+  console.log('online');
+  OnLineStatus();
+})
+
+window.addEventListener('offline', function () {
+  console.log('offline');
+  OnLineStatus();
+})
 
 
 //Peliculas
