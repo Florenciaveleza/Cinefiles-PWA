@@ -1,0 +1,32 @@
+{
+    "theme_color": "#003459",
+    "background_color": "#f6f6f6",
+    "display": "fullscreen",
+    "scope": "/pwa-parcial-1-dwn3ap-velez-florencia/",
+    "start_url": "/pwa-parcial-1-dwn3ap-velez-florencia/index.html",
+    "description": "Sitio para descubrir tus peliculas favoritas",
+    "name": "Cinefiles",
+    "short_name": "Cine App",
+    "icons": [
+        {
+            "src": "icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

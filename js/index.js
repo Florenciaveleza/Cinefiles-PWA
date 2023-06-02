@@ -16,7 +16,43 @@ window.addEventListener("DOMContentLoaded", function () {
       eventInstall = e;
       showInstallButton();
     })
+//NOTIFICACIONES
+    const notifBtn = document.querySelector('.btnNotif');
+    notifBtn.addEventListener('click', () => {
+        Notification.requestPermission().then(perm => {
+          if(perm === 'granted'){
+            const notification = new Notification("Cinefiles", {
+                body: "Aceptaste recibir notificaciones! Encontrá tus películas favoritas.",
+                icon: 'icons/icon-192x192.png',
+                tag: 1,
+                silent: true
+            })
+        }
+    })
+})
 
+//COMPARTIR
+
+let btnShare = document.querySelector('.btnShare');
+if(btnShare != undefined){
+    console.log('test')
+    if(navigator.share){
+
+        btnShare.addEventListener('click', e => {
+            let dataShare = {title: 'Cinefiles', text: 'Encontrá y guardá peliculas', url: 'http://localhost/pwa/index.html'}
+            navigator.share(dataShare)
+            .then(res => {
+                console.log('compartir la app')
+            })
+        } )
+
+    }else{
+        console.log('no es compatible');
+        btnShare.style.display = 'none';
+    }
+}
+
+//INSTALACION
     let showInstallButton = () => {
       if(btnInstall != undefined) {
         btnInstall.style.display = "inline-block";
@@ -140,6 +176,7 @@ function mostrarDetalles(id) {
         localStorage.setItem('buttonState', 'added');
         updateButton()
       });
+
       function updateButton(){
         if (movieList.includes(id)) {
           btnList.classList.add('added');

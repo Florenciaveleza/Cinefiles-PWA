@@ -52,7 +52,7 @@ header button {
   color: var(--main);
 }
 
-.descargar {
+.boton {
   background-color: var(--main);
   border: none;
   border-radius: 10px;
