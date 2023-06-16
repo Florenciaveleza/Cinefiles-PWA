@@ -12,18 +12,24 @@ function mostrarLista() {
         const posterPath = data.posters[0].file_path;
         const posterURL = IMG + posterPath;
         let html = `
-        <div class="gap-4 mt-5 d-flex justify-content-center col-sm-6 col-md-4 col-lg-3">
           <div class="card sm-img" style="width: 18rem;">
             <a href="detalles.html?id=${id}">
               <img src="${posterURL}" class="card-img-top films" alt="${data.title}">
             </a>
           </div>
-        </div>
         `;
 
         listaSection.innerHTML += html;
     
   });
+  
+ if(listStorage == '') {
+  let html = `
+  <div><p>Your list is empty, search for your favorite movie and save it</p></div>
+`;
+
+listaSection.innerHTML += html;
+}
  });
 }
 

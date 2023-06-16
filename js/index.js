@@ -92,8 +92,7 @@ let OnLineStatus = () => {
       console.log("estamos offline");
       let offline = document.getElementById('offline');
       let html= `
-      <p>Estas desconectado, pero podrás seguir viendo las peliculas en tu lista! </p>
-      
+      <p>You are disconnected, but you will still be able to view the movies in your list! </p>
       `;
       offline.innerHTML = html;
   }
@@ -185,41 +184,67 @@ function mostrarDetalles(id) {
               <p>${data.overview}</p>
             </div>
             <button id="buttonList">Add to Lists</button>
+            <button id="buttonDelete">Delete</button>
           </div>
         </div>  
       </div>
     </div>
-    
       `;
       detalles.innerHTML = html;
       //BOTON ADD TO LISTS
       let btnList = document.getElementById('buttonList');
       btnList.addEventListener('click', function(){
-        movieList.push(id);
-        localStorage.setItem('movieList', JSON.stringify(movieList));
-        console.log(movieList);
-        localStorage.setItem('buttonState', 'added');
-        updateButton()
+        if (!movieList.includes(id)) {
+          movieList.push(id);
+          btnList.classList.add('added');
+          localStorage.setItem('movieList', JSON.stringify(movieList));
+          localStorage.setItem('buttonState', 'added');
+          updateButton();
+        }
       });
 
-      function updateButton(){
+      updateButton();
+
+      function updateButton() {
+        let btnList = document.getElementById('buttonList');
+        let buttonState = localStorage.getItem('buttonState');
+        let buttonDelete = document.getElementById('buttonDelete');
+        //ADD TO LIST
         if (movieList.includes(id)) {
           btnList.classList.add('added');
           btnList.disabled = true;
           btnList.innerText = 'Added';
+          buttonDelete.style.display = 'inline-block'
+
+          //BOTON DELETE
+          function deleteMovie() {
+            let index = movieList.indexOf(id);
+            if (index > -1) {
+              movieList.splice(index, 1);
+            }
+            localStorage.setItem('movieList', JSON.stringify(movieList));
+            buttonDelete.style.display = 'none';
+            updateButton()
+          }
+          buttonDelete.addEventListener('click', deleteMovie);
         } else {
-          btnList.classList.remove('added');
-          btnList.disabled = false;
-          btnList.innerText = 'Add to List';
+            btnList.classList.remove('added');
+            btnList.disabled = false;
+            btnList.innerText = 'Add to List';
+            buttonDelete.style.display = 'none';
+            buttonDelete.removeEventListener('click', deleteMovie);
         }
       }
+
     })
+
 }
 
 mostrarDetalles(id);
 
 //Buscador
 function buscador() {
+  const divBuscador =document.getElementById('validarBuscador')
   const busqueda = document.getElementById('buscar');
   const searchButton = document.getElementById('searchButton');
   searchButton.addEventListener('click', function(){
@@ -231,6 +256,13 @@ function buscador() {
   .then((data) => {
     peliculasCatalogo(data.results);
     })
+
+    if(searchTerm == '') {
+      let html = `
+      <p>You must search for a movie, go back to the  <a href="index.html">home page<a></p>
+      `;
+      divBuscador.innerHTML = html;
+    }
 })
 }
 buscador()
