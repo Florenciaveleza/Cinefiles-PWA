@@ -31,6 +31,8 @@ window.addEventListener("DOMContentLoaded", function () {
     })
 })
 
+
+
 //COMPARTIR
 
 let btnShare = document.querySelector('.btnShare');
@@ -238,6 +240,8 @@ function mostrarDetalles(id) {
 
     })
 
+
+
 }
 
 mostrarDetalles(id);
@@ -266,3 +270,4 @@ function buscador() {
 })
 }
 buscador()
+
