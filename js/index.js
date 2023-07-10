@@ -16,21 +16,6 @@ window.addEventListener("DOMContentLoaded", function () {
       eventInstall = e;
       showInstallButton();
     })
-//NOTIFICACIONES
-    const notifBtn = document.querySelector('.btnNotif');
-    notifBtn.addEventListener('click', () => {
-        Notification.requestPermission().then(perm => {
-          if(perm === 'granted'){
-            const notification = new Notification("Cinefiles", {
-                body: "Aceptaste recibir notificaciones! Encontrá tus películas favoritas.",
-                icon: 'icons/icon-192x192.png',
-                tag: 1,
-                silent: true
-            })
-        }
-    })
-})
-
 
 
 //COMPARTIR
